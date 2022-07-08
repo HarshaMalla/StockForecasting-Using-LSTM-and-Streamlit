@@ -10,7 +10,8 @@ start= '2010-01-01'
 end= '2021-12-31'
 
 st.title("Stock Trend Prediction")
-st.write("vghdhbbdcsbdcsbcdsn dcsn")
+
+
 input=st.text_input("enter stock ticker",'AAPL')
 df=data.DataReader(input,'yahoo',start,end)
 
