@@ -28,9 +28,10 @@ df=data.DataReader(input,'yahoo',start,end)
 st.subheader("Data from 2010-2021")
 st.write(df.describe())
 with st.expander("See explanation"):
-     st.write("""
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-     """)
+     st.write(
+       "High - The high is the highest price at which a stock is traded during a period.\n")
+     st.write(" Open -  Open means the price at which a stock started trading when the opening bell rang.\n")
+     st.write(" Close - Close refers to the price of an individual stock when the stock exchange closed shop for the day.\n")
 
 st.subheader("closing price vs time chart")
 fig =pl.figure(figsize=(12,6))
