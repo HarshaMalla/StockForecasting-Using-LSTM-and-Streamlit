@@ -35,24 +35,29 @@ with st.expander("See explanation"):
 
 st.subheader("closing price vs time chart")
 fig =pl.figure(figsize=(12,6))
+pl.legend(["price VS time"])
+pl.xlabel("Time(years)")
+pl.ylabel("price")
 pl.plot(df.Close)
 st.pyplot(fig)
 with st.expander("See explanation"):
-     st.write("""
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-     """)
+     st.write(" CLOSING PRICE - The closing price is the raw price or cash value of the last transacted price in a security before the market officially closes for normal trading.\n")
+     st.write(" TIME CHART - A time frame refers to the amount of time that a trend lasts for in a market, which can be identified and used by traders.\n")
 
 st.subheader("closing price vs time chart with 100MA and 200MA")
 ma100=df.Close.rolling(100).mean()
 ma200=df.Close.rolling(200).mean()
 fig =pl.figure(figsize=(12,6))
-pl.plot(ma100, 'r')
-pl.plot (ma200 ,'g')
-pl.plot(df.Close, 'b')
+a=pl.plot(ma100, 'r')
+b=pl.plot (ma200 ,'g')
+c=pl.plot(df.Close, 'b')
+pl.legend(["RED - MA100","GREEN - MA200","Blue - Closing price"])
+pl.xlabel("Time(years)")
+pl.ylabel("price")
 st.pyplot(fig)
 with st.expander("See explanation"):
      st.write("""
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+         MA - The moving average (MA) is a simple technical analysis tool that smooths out price data by creating a constantly updated average price. The average is taken over a specific period of time, like 10 days, 20 minutes, 30 weeks, or any time period the trader chooses.
      """)
 
 data_training= pd.DataFrame(df['Close'][0:int(len(df)*0.70)])
@@ -93,10 +98,11 @@ st.subheader('Predictions vs Original')
 fig2=pl.figure(figsize=(12,6))
 pl.plot(y_test,'b')
 pl.plot(y_predicted)
+pl.legend(["Blue - ORIGINAL","GREEN - Predicted"])
 st.pyplot(fig2)
 with st.expander("See explanation"):
      st.write("""
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        The prediction is  shown by Green line and the actual trend is  shown by blue. The proximity  of  these  two  lines  tells,  how  efficient  the LSTM based model is. The prediction approximates real trend when a  considerable amount  of time  has passed . This project is not responsible for your loss in investment . This project is for planning of your investment .
      """)
 
 
