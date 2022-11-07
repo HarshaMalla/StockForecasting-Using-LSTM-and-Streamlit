@@ -14,7 +14,7 @@ end= '2022-6-30'
 st.title("Stock Mate")
 def header(url):
      st.header(f'<p style="color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
-st.markdown(" Stockmate implement machine learning approach to predict stock prices. Machine learning is effectively implemented in forecasting stock prices. The objective is to predict the stock prices in order to make more informed and accurate investment decisions. We propose a stock price prediction system that integrates mathematical functions, machine learning, and other external factors for the purpose of achieving better stock prediction accuracy and issuing profitable trades.")
+st.markdown("<p style='color:#FF0000'><tt>Stockmate implement machine learning approach to predict stock prices. Machine learning is effectively implemented in forecasting stock prices. The objective is to predict the stock prices in order to make more informed and accurate investment decisions. We propose a stock price prediction system that integrates mathematical functions, machine learning, and other external factors for the purpose of achieving better stock prediction accuracy and issuing profitable trades.</tt></p>", unsafe_allow_html=True)
 input = st.selectbox(
      'Enter or select Stock Tiker ',
      ('AAPL','MSFT','GOOG','GOOGL','AMZN','TSLA','UNH','JNJ','META','NVDA'))
